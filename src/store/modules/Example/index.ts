@@ -4,7 +4,7 @@ import actions from './actions';
 import getters from './getters';
 import state from './state';
 
-export const useExampleStore = defineStore('example', {
+const useExampleStore = defineStore('example', {
   state: () => ({
     ...state,
   }),
@@ -15,3 +15,5 @@ export const useExampleStore = defineStore('example', {
     ...actions,
   },
 });
+
+export default useExampleStore;

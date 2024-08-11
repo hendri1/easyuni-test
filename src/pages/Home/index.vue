@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { useExampleStore } from '@store/modules/Example'
+import useExampleStore from '@/store/modules/Example'
 
 const exampleStore = useExampleStore()
 const { setData } = exampleStore
