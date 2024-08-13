@@ -14,7 +14,7 @@ export interface stateInterface {
   count: number;
   currentPage: number;
   list: stageInterface[];
-  error: null | string;
+  error: null | unknown | string;
   isLoading: boolean;
 }
 

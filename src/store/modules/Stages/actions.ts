@@ -1,13 +1,7 @@
 import { sleep } from '@/utils';
-import { responseStageInterface } from './interface';
+import { stateInterface, responseStageInterface } from './interface';
 
-const fetchStages = async function (this: {
-  isLoading: boolean;
-  count: any;
-  current_page: number;
-  list: any;
-  error: unknown;
-}): Promise<void> {
+const fetchStages = async function (this: stateInterface): Promise<void> {
   try {
     this.isLoading = true;
     await sleep(1000);
@@ -17,7 +11,7 @@ const fetchStages = async function (this: {
     if (data.count === 0) return
 
     this.count = data.count;
-    this.current_page = 1;
+    this.currentPage = 1;
     this.list = data.results.map((stage: responseStageInterface) => ({
       id: stage.id,
       name: stage.name,
