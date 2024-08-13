@@ -1,21 +1,19 @@
-<script lang="ts" setup>
-import { storeToRefs } from 'pinia'
-import useExampleStore from '@/store/modules/Example'
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import useStagesStore from '@/store/modules/Stages'
+import Board from '@/components/organisms/Board/index.vue'
 
-const exampleStore = useExampleStore()
-const { setData } = exampleStore
-const { getData } = storeToRefs(exampleStore) 
+const stagesStore = useStagesStore()
+const { fetchStages } = stagesStore
 
-const changeContent = () => {
-  setData('New content')
-}
+onMounted(async () => {
+  await fetchStages()
+})
 </script>
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold underline">Home</h1>
-    <p>Home page content</p>
-    <button @click="changeContent">Change data</button>
-    <p>{{ getData }}</p>
+    <h1 class="text-3xl font-bold underline">Kanban</h1>
+    <Board :is-loading="stagesStore.isLoading" :stages="stagesStore.list" />
   </div>
 </template>

@@ -9,8 +9,10 @@
     "paths": {
       "@/assets/*": ["assets/*"],
       "@/components/*": ["components/*"],
+      "@/interfaces/*": ["interfaces/*"],
       "@/pages/*": ["pages/*"],
-      "@/store/*": ["store/*"]
+      "@/store/*": ["store/*"],
+      "@/utils/*": ["utils/*"]
     },
   },
 }
